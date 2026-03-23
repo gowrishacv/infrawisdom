@@ -1,430 +1,1701 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gowrisha C. Vishwa Kumar | Cloud Solutions Architect</title>
-    <meta name="description" content="Cloud Solutions Architect designing secure, compliant, enterprise-scale Azure platforms with strong reliability and delivery automation.">
+    <meta name="description"
+        content="Cloud Solutions Architect designing secure, compliant, enterprise-scale Azure platforms with strong reliability and delivery automation.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap"
+        rel="stylesheet">
     <style>
-        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-        :root{
-            --accent:#0078D4;--accent-light:#2B99FF;--accent-dark:#005A9E;
-            --accent-glow:rgba(0,120,212,0.15);--accent-glow2:rgba(0,120,212,0.25);
-            --dark:#1e1e1e;--dark-card:#282828;--dark-card2:#333;
-            --text-light:#c8c8c8;--text-white:#f0f0f0;--text-muted:#999;
-            --timeline-bg:rgba(0,120,212,0.1);
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
         }
-        html{scroll-behavior:smooth}
-        body{font-family:'Outfit',sans-serif;background:var(--dark);color:var(--text-light);overflow-x:hidden}
+
+        :root {
+            --accent: #0078D4;
+            --accent-light: #2B99FF;
+            --accent-dark: #005A9E;
+            --accent-glow: rgba(0, 120, 212, 0.15);
+            --accent-glow2: rgba(0, 120, 212, 0.25);
+            --dark: #1e1e1e;
+            --dark-card: #282828;
+            --dark-card2: #333;
+            --text-light: #d7deea;
+            --text-white: #f7fbff;
+            --text-muted: #95a1b3;
+            --timeline-bg: rgba(0, 120, 212, 0.1);
+            --border-soft: rgba(255, 255, 255, 0.08);
+            --surface-1: #20242d;
+            --surface-2: #171b22;
+            --shadow-soft: 0 24px 60px rgba(0, 0, 0, .28);
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background: radial-gradient(circle at top left, rgba(43, 153, 255, .12), transparent 28%), radial-gradient(circle at top right, rgba(0, 120, 212, .10), transparent 24%), linear-gradient(180deg, #13161c 0%, #1b1f27 42%, #181c23 100%);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .logo-text {
+            font-family: 'Sora', sans-serif
+        }
+
+        svg {
+            max-width: 100%;
+            height: auto
+        }
 
         /* SIDEBAR NAV */
-        .nav-sidebar{position:fixed;left:-320px;top:0;width:300px;height:100vh;background:var(--dark-card);z-index:100;padding:2rem 1.5rem;transition:left .4s cubic-bezier(.4,0,.2,1);border-radius:0 20px 20px 0;box-shadow:8px 0 40px rgba(0,0,0,.5);display:flex;flex-direction:column;gap:1rem}
-        .nav-sidebar.active{left:0}
-        .nav-close{align-self:flex-end;background:none;border:none;color:var(--accent-light);font-size:1.8rem;cursor:pointer}
-        .nav-sidebar a{display:flex;align-items:center;gap:1rem;padding:.9rem 1.5rem;border:1.5px solid var(--accent);border-radius:50px;color:var(--accent-light);text-decoration:none;font-size:1.05rem;font-weight:500;transition:all .3s}
-        .nav-sidebar a:hover{background:var(--accent);color:#fff}
-        .nav-sidebar a svg{width:20px;height:20px;fill:currentColor;flex-shrink:0}
-        .nav-bg{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:99;opacity:0;visibility:hidden;transition:all .3s}
-        .nav-bg.active{opacity:1;visibility:visible}
+        .nav-sidebar {
+            position: fixed;
+            left: -320px;
+            top: 0;
+            width: 300px;
+            height: 100vh;
+            background: var(--dark-card);
+            z-index: 100;
+            padding: 2rem 1.5rem;
+            transition: left .4s cubic-bezier(.4, 0, .2, 1);
+            border-radius: 0 20px 20px 0;
+            box-shadow: 8px 0 40px rgba(0, 0, 0, .5);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem
+        }
+
+        .nav-sidebar.active {
+            left: 0
+        }
+
+        .nav-close {
+            align-self: flex-end;
+            background: none;
+            border: none;
+            color: var(--accent-light);
+            font-size: 1.8rem;
+            cursor: pointer
+        }
+
+        .nav-sidebar a {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: .9rem 1.5rem;
+            border: 1.5px solid var(--accent);
+            border-radius: 50px;
+            color: var(--accent-light);
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 500;
+            transition: all .3s
+        }
+
+        .nav-sidebar a:hover {
+            background: var(--accent);
+            color: #fff
+        }
+
+        .nav-sidebar a svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            flex-shrink: 0
+        }
+
+        .nav-bg {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .6);
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: all .3s
+        }
+
+        .nav-bg.active {
+            opacity: 1;
+            visibility: visible
+        }
 
         /* HERO */
-        .hero{display:flex;min-height:100vh;position:relative}
-        .hero-left{width:38%;background:var(--accent);position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:2.5rem}
-        .hero-right{width:62%;display:flex;align-items:center;padding:2.5rem 4rem 2.5rem 14rem}
-        .logo{display:flex;align-items:center;gap:.75rem;text-decoration:none;opacity:0;animation:fadeDown .8s ease forwards}
-        .logo-text{font-family:'Quicksand',sans-serif;font-weight:700;font-size:1.4rem;letter-spacing:.3px;line-height:1.2;color:#fff}
-        .menu-btn{position:absolute;top:2.5rem;right:2.5rem;cursor:pointer;z-index:98;display:flex;flex-direction:column;gap:6px;background:none;border:none;padding:8px;opacity:0;animation:fadeDown .8s ease .2s forwards}
-        .menu-btn span{display:block;width:28px;height:2px;background:var(--text-light);transition:all .3s}
-        .menu-btn:hover span{background:var(--accent-light)}
-        .photo-wrap{position:absolute;left:38%;top:50%;transform:translate(-50%,-50%);z-index:10;opacity:0;animation:fadeScale 1s ease .4s forwards}
-        .photo-circle{width:300px;height:300px;border-radius:50%;border:5px solid var(--dark);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5)}
-        .photo-circle img{width:100%;height:100%;object-fit:cover;display:block}
-        .hero-content{max-width:520px;opacity:0;animation:fadeUp .8s ease .6s forwards}
-        .hero-sub{font-size:.85rem;font-weight:500;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem}
-        .hero-name{font-size:3rem;font-weight:700;color:var(--text-white);line-height:1.15;margin-bottom:.75rem}
-        .hero-title{font-size:1.1rem;color:var(--accent-light);font-weight:500;margin-bottom:1rem}
-        .hero-bio{font-size:1rem;font-weight:300;line-height:1.75;margin-bottom:1rem}
-        .hero-status{display:inline-flex;align-items:center;gap:.5rem;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);border-radius:50px;padding:.4rem 1rem;font-size:.8rem;color:#86efac;margin-bottom:2rem}
-        .hero-status .dot{width:8px;height:8px;border-radius:50%;background:#22c55e}
-        .hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
-        .btn{padding:.85rem 2rem;border-radius:4px;font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:500;cursor:pointer;text-decoration:none;transition:all .3s;letter-spacing:.5px}
-        .btn-outline{border:1.5px solid var(--accent-light);background:transparent;color:var(--accent-light)}
-        .btn-outline:hover{background:var(--accent-light);color:#fff}
-        .btn-filled{border:1.5px solid var(--accent);background:var(--accent);color:#fff}
-        .btn-filled:hover{background:var(--accent-dark);border-color:var(--accent-dark)}
-        .socials{display:flex;gap:1.5rem;opacity:0;animation:fadeUp .8s ease .8s forwards}
-        .socials a{color:#fff;display:flex;align-items:center;transition:all .3s}
-        .socials a:hover{opacity:.7;transform:translateY(-2px)}
-        .socials svg{width:24px;height:24px;fill:currentColor}
+        .hero {
+            display: flex;
+            min-height: 100vh;
+            position: relative
+        }
+
+        .hero-left {
+            width: 38%;
+            background: var(--accent);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 2.5rem
+        }
+
+        .hero-right {
+            width: 62%;
+            display: flex;
+            align-items: center;
+            padding: 2.5rem 4rem 2.5rem 14rem
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            text-decoration: none;
+            opacity: 0;
+            animation: fadeDown .8s ease forwards
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.35rem;
+            letter-spacing: .2px;
+            line-height: 1.2;
+            color: #fff
+        }
+
+        .menu-btn {
+            position: absolute;
+            top: 2.5rem;
+            right: 2.5rem;
+            cursor: pointer;
+            z-index: 98;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            background: none;
+            border: none;
+            padding: 8px;
+            opacity: 0;
+            animation: fadeDown .8s ease .2s forwards
+        }
+
+        .menu-btn span {
+            display: block;
+            width: 28px;
+            height: 2px;
+            background: var(--text-light);
+            transition: all .3s
+        }
+
+        .menu-btn:hover span {
+            background: var(--accent-light)
+        }
+
+        .photo-wrap {
+            position: absolute;
+            left: 38%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            opacity: 0;
+            animation: fadeScale 1s ease .4s forwards
+        }
+
+        .photo-circle {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 5px solid var(--dark);
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, .5)
+        }
+
+        .photo-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block
+        }
+
+        .hero-content {
+            max-width: 520px;
+            opacity: 0;
+            animation: fadeUp .8s ease .6s forwards
+        }
+
+        .hero-sub {
+            font-size: .85rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: .5rem
+        }
+
+        .hero-name {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text-white);
+            line-height: 1.12;
+            letter-spacing: -.03em;
+            margin-bottom: .9rem
+        }
+
+        .hero-title {
+            font-size: 1.1rem;
+            color: var(--accent-light);
+            font-weight: 500;
+            margin-bottom: 1rem
+        }
+
+        .hero-bio {
+            font-size: 1.02rem;
+            font-weight: 500;
+            line-height: 1.9;
+            color: #dfe6f2;
+            max-width: 52ch;
+            margin-bottom: 1rem
+        }
+
+        .hero-status {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            background: rgba(34, 197, 94, .1);
+            border: 1px solid rgba(34, 197, 94, .3);
+            border-radius: 50px;
+            padding: .4rem 1rem;
+            font-size: .8rem;
+            color: #86efac;
+            margin-bottom: 2rem
+        }
+
+        .hero-status .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #22c55e
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap
+        }
+
+        .btn {
+            padding: .9rem 2rem;
+            border-radius: 999px;
+            font-family: 'Manrope', sans-serif;
+            font-size: .95rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all .3s;
+            letter-spacing: .2px;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, .18)
+        }
+
+        .btn-outline {
+            border: 1.5px solid var(--accent-light);
+            background: transparent;
+            color: var(--accent-light)
+        }
+
+        .btn-outline:hover {
+            background: var(--accent-light);
+            color: #fff
+        }
+
+        .btn-filled {
+            border: 1.5px solid var(--accent);
+            background: var(--accent);
+            color: #fff
+        }
+
+        .btn-filled:hover {
+            background: var(--accent-dark);
+            border-color: var(--accent-dark)
+        }
+
+        .socials {
+            display: flex;
+            gap: 1.5rem;
+            opacity: 0;
+            animation: fadeUp .8s ease .8s forwards
+        }
+
+        .socials a {
+            color: #fff;
+            display: flex;
+            align-items: center;
+            transition: all .3s
+        }
+
+        .socials a:hover {
+            opacity: .7;
+            transform: translateY(-2px)
+        }
+
+        .socials svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor
+        }
 
         /* SECTIONS */
-        .section{padding:5rem 8%}
-        .section-alt{background:var(--dark-card)}
-        .s-title{font-size:2.4rem;font-weight:700;color:var(--accent-light);margin-bottom:.5rem}
-        .s-divider{display:flex;align-items:center;gap:.75rem;margin-bottom:2.5rem}
-        .s-dot{width:10px;height:10px;border-radius:50%;background:var(--accent)}
-        .s-line{flex:1;height:2px;background:var(--accent)}
+        .section {
+            padding: 5.5rem 8%;
+            position: relative
+        }
+
+        .section-alt {
+            background: linear-gradient(180deg, rgba(40, 40, 40, .92), rgba(30, 34, 42, .96))
+        }
+
+        .s-title {
+            font-size: 2.55rem;
+            font-weight: 800;
+            color: var(--accent-light);
+            margin-bottom: .65rem;
+            letter-spacing: -.03em;
+            line-height: 1.1
+        }
+
+        .s-divider {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            margin-bottom: 2.5rem
+        }
+
+        .s-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent)
+        }
+
+        .s-line {
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), rgba(43, 153, 255, .25))
+        }
 
         /* ABOUT */
-        .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-        .about-text p{font-size:1rem;font-weight:300;line-height:1.8;margin-bottom:1.25rem}
+        .about-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.12fr) minmax(280px, .88fr);
+            gap: 3rem;
+            align-items: stretch
+        }
+
+        .about-text {
+            position: relative;
+            background: linear-gradient(180deg, rgba(34, 39, 49, .92), rgba(21, 25, 32, .95));
+            border: 1px solid var(--border-soft);
+            border-radius: 28px;
+            padding: 2rem 2rem 1.5rem;
+            box-shadow: var(--shadow-soft);
+            overflow: hidden
+        }
+
+        .about-text::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-light), transparent 78%)
+        }
+
+        .about-text p {
+            font-size: 1.06rem;
+            font-weight: 500;
+            line-height: 1.95;
+            color: #dbe4f0;
+            max-width: 60ch;
+            margin-bottom: 1.35rem
+        }
+
+        .about-text p:first-child {
+            font-size: 1.16rem;
+            font-weight: 800;
+            color: var(--text-white);
+            line-height: 1.8
+        }
+
+        .about-text p:last-child {
+            margin-bottom: 0
+        }
 
         /* TIMELINE */
-        .tl-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
-        .tl-cards{display:flex;flex-direction:column;gap:1.25rem}
-        .tl-card{background:var(--timeline-bg);border-radius:12px;padding:1.25rem 1.5rem;border-left:4px solid var(--accent);transition:transform .3s}
-        .tl-card:hover{transform:translateX(4px)}
-        .tl-date{font-size:.8rem;font-weight:600;color:var(--accent-light);margin-bottom:.2rem}
-        .tl-role{font-size:1.05rem;font-weight:600;color:var(--text-white);margin-bottom:.15rem}
-        .tl-org{font-size:.9rem;color:var(--text-muted)}
-        .tl-icon{width:36px;height:36px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;margin-bottom:.6rem}
-        .tl-icon svg{width:18px;height:18px;fill:#fff}
+        .tl-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start
+        }
+
+        .tl-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem
+        }
+
+        .tl-card {
+            background: var(--timeline-bg);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            border-left: 4px solid var(--accent);
+            transition: transform .3s
+        }
+
+        .tl-card:hover {
+            transform: translateX(4px)
+        }
+
+        .tl-date {
+            font-size: .8rem;
+            font-weight: 600;
+            color: var(--accent-light);
+            margin-bottom: .2rem
+        }
+
+        .tl-role {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-white);
+            margin-bottom: .15rem
+        }
+
+        .tl-org {
+            font-size: .9rem;
+            color: var(--text-muted)
+        }
+
+        .tl-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: .6rem
+        }
+
+        .tl-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: #fff
+        }
 
         /* SKILLS */
-        .skills-row{display:flex;flex-wrap:wrap;gap:1.25rem;justify-content:center}
-        .skill-tile{width:145px;height:80px;background:var(--accent);border-radius:16px;display:flex;align-items:center;justify-content:center;color:#fff;transition:all .3s;cursor:default;font-size:.9rem;font-weight:600;text-align:center;line-height:1.3;padding:.5rem}
-        .skill-tile:hover{transform:translateY(-4px);background:var(--accent-dark)}
+        .skills-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            justify-content: center
+        }
+
+        .skill-tile {
+            width: 145px;
+            height: 80px;
+            background: var(--accent);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            transition: all .3s;
+            cursor: default;
+            font-size: .9rem;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.3;
+            padding: .5rem
+        }
+
+        .skill-tile:hover {
+            transform: translateY(-4px);
+            background: var(--accent-dark)
+        }
 
         /* INFO TILES (Education, Certs, Projects) */
-        .tile-row{display:flex;flex-wrap:wrap;gap:1.25rem;justify-content:center}
-        .info-tile{width:180px;min-height:160px;background:var(--accent);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;color:#fff;transition:all .3s;cursor:default;padding:1.25rem 1rem;text-align:center}
-        .info-tile:hover{transform:translateY(-4px);background:var(--accent-dark)}
-        .info-tile--white{background:#fff;color:#1e1e1e}
-        .info-tile--white:hover{background:#f0f0f0}
-        .info-tile--white .tile-label{color:#1e1e1e}
-        .info-tile--white .tile-sub{color:#666;opacity:1}
-        .info-tile--tall{width:260px;min-height:240px;justify-content:flex-start;padding:1.5rem}
-        .tile-icon{width:32px;height:32px;fill:#fff;margin-bottom:.25rem}
-        .tile-ms{width:28px;height:28px;margin-bottom:.4rem}
-        .tile-logo{width:36px;height:36px;object-fit:contain;margin-bottom:.4rem;background:#fff;border-radius:8px;padding:4px}
-        .info-tile--white .tile-logo{width:48px;height:48px;background:none;padding:0;border-radius:0}
-        .tile-label{font-size:.95rem;font-weight:700;line-height:1.25}
-        .tile-sub{font-size:.75rem;font-weight:400;opacity:.8;line-height:1.3}
-        .tile-year{font-size:.7rem;font-weight:600;opacity:.6;margin-top:.15rem}
-        .tile-desc{font-size:.78rem;font-weight:300;opacity:.85;line-height:1.5;margin-top:.25rem;flex:1}
-        .tile-val{font-size:2rem;font-weight:800;line-height:1}
-        .tile-tags{display:flex;flex-wrap:wrap;gap:.3rem;justify-content:center;margin-top:.5rem}
-        .tile-tags span{background:rgba(0,0,0,.2);padding:.15rem .5rem;border-radius:12px;font-size:.65rem}
-        .tile-row--compact{gap:1rem}
-        .tile-row--compact .info-tile{width:130px;min-height:120px;padding:1rem .75rem}
-        .tile-row--compact .tile-val{font-size:1.6rem}
-        .tile-row--compact .tile-label{font-size:.78rem}
-        .tile-row--compact .tile-sub{font-size:.65rem}
-        .impact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
-        .impact-card{background:var(--timeline-bg);border-radius:12px;padding:1.5rem;text-align:center;transition:transform .3s}
-        .impact-card:hover{transform:translateY(-4px)}
-        .impact-val{font-size:2rem;font-weight:700;color:var(--accent-light)}
-        .impact-label{font-size:.85rem;font-weight:600;color:var(--text-white);margin-top:.25rem}
-        .impact-detail{font-size:.8rem;color:var(--text-muted);margin-top:.35rem;line-height:1.4}
+        .tile-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            justify-content: center
+        }
+
+        .info-tile {
+            width: 180px;
+            min-height: 160px;
+            background: var(--accent);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: .4rem;
+            color: #fff;
+            transition: all .3s;
+            cursor: default;
+            padding: 1.25rem 1rem;
+            text-align: center
+        }
+
+        .info-tile:hover {
+            transform: translateY(-4px);
+            background: var(--accent-dark)
+        }
+
+        .info-tile--white {
+            background: #fff;
+            color: #1e1e1e
+        }
+
+        .info-tile--white:hover {
+            background: #f0f0f0
+        }
+
+        .info-tile--white .tile-label {
+            color: #1e1e1e
+        }
+
+        .info-tile--white .tile-sub {
+            color: #666;
+            opacity: 1
+        }
+
+        .info-tile--tall {
+            width: 260px;
+            min-height: 240px;
+            justify-content: flex-start;
+            padding: 1.5rem
+        }
+
+        .tile-icon {
+            width: 32px;
+            height: 32px;
+            fill: #fff;
+            margin-bottom: .25rem
+        }
+
+        .tile-ms {
+            width: 28px;
+            height: 28px;
+            margin-bottom: .4rem
+        }
+
+        .tile-logo {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            margin-bottom: .4rem;
+            background: #fff;
+            border-radius: 8px;
+            padding: 4px
+        }
+
+        .info-tile--white .tile-logo {
+            width: 48px;
+            height: 48px;
+            background: none;
+            padding: 0;
+            border-radius: 0
+        }
+
+        .tile-label {
+            font-size: .95rem;
+            font-weight: 700;
+            line-height: 1.25
+        }
+
+        .tile-sub {
+            font-size: .75rem;
+            font-weight: 400;
+            opacity: .8;
+            line-height: 1.3
+        }
+
+        .tile-year {
+            font-size: .7rem;
+            font-weight: 600;
+            opacity: .6;
+            margin-top: .15rem
+        }
+
+        .tile-desc {
+            font-size: .78rem;
+            font-weight: 300;
+            opacity: .85;
+            line-height: 1.5;
+            margin-top: .25rem;
+            flex: 1
+        }
+
+        .tile-val {
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1
+        }
+
+        .tile-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .3rem;
+            justify-content: center;
+            margin-top: .5rem
+        }
+
+        .tile-tags span {
+            background: rgba(0, 0, 0, .2);
+            padding: .15rem .5rem;
+            border-radius: 12px;
+            font-size: .65rem
+        }
+
+        .tile-row--compact {
+            gap: 1rem
+        }
+
+        .tile-row--compact .info-tile {
+            width: 130px;
+            min-height: 120px;
+            padding: 1rem .75rem
+        }
+
+        .tile-row--compact .tile-val {
+            font-size: 1.6rem
+        }
+
+        .tile-row--compact .tile-label {
+            font-size: .78rem
+        }
+
+        .tile-row--compact .tile-sub {
+            font-size: .65rem
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem
+        }
+
+        .impact-card {
+            background: var(--timeline-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform .3s
+        }
+
+        .impact-card:hover {
+            transform: translateY(-4px)
+        }
+
+        .impact-val {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-light)
+        }
+
+        .impact-label {
+            font-size: .85rem;
+            font-weight: 600;
+            color: var(--text-white);
+            margin-top: .25rem
+        }
+
+        .impact-detail {
+            font-size: .8rem;
+            color: var(--text-muted);
+            margin-top: .35rem;
+            line-height: 1.4
+        }
 
         /* PROJECTS */
-        .proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
-        .proj-card{background:var(--accent);border-radius:16px;padding:2rem;display:flex;flex-direction:column;min-height:260px;transition:transform .3s}
-        .proj-card:hover{transform:translateY(-6px)}
-        .proj-card h3{font-size:1.2rem;font-weight:700;color:#fff;text-align:center;margin-bottom:.75rem}
-        .proj-card p{font-size:.85rem;color:rgba(255,255,255,.85);line-height:1.6;flex:1}
-        .proj-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.75rem}
-        .proj-tag{background:rgba(0,0,0,.2);padding:.2rem .6rem;border-radius:20px;font-size:.7rem;color:#fff}
+        .proj-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem
+        }
+
+        .proj-card {
+            background: var(--accent);
+            border-radius: 16px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            min-height: 260px;
+            transition: transform .3s
+        }
+
+        .proj-card:hover {
+            transform: translateY(-6px)
+        }
+
+        .proj-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            text-align: center;
+            margin-bottom: .75rem
+        }
+
+        .proj-card p {
+            font-size: .85rem;
+            color: rgba(255, 255, 255, .85);
+            line-height: 1.6;
+            flex: 1
+        }
+
+        .proj-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .4rem;
+            margin-top: .75rem
+        }
+
+        .proj-tag {
+            background: rgba(0, 0, 0, .2);
+            padding: .2rem .6rem;
+            border-radius: 20px;
+            font-size: .7rem;
+            color: #fff
+        }
 
         /* CERTS */
-        .certs-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
-        .cert-list{display:flex;flex-direction:column;gap:1.25rem}
-        .cert-card{background:var(--timeline-bg);border-radius:12px;padding:1.25rem 1.5rem;border-left:4px solid var(--accent)}
-        .cert-card h4{font-size:1rem;font-weight:600;color:var(--text-white);margin-bottom:.2rem}
-        .cert-card p{font-size:.85rem;color:var(--text-muted);line-height:1.5}
-        .cert-meta{display:flex;gap:1.5rem;margin-top:.4rem;font-size:.75rem}
-        .cert-meta span{color:var(--accent-light);font-weight:500}
+        .certs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start
+        }
+
+        .cert-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem
+        }
+
+        .cert-card {
+            background: var(--timeline-bg);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            border-left: 4px solid var(--accent)
+        }
+
+        .cert-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-white);
+            margin-bottom: .2rem
+        }
+
+        .cert-card p {
+            font-size: .85rem;
+            color: var(--text-muted);
+            line-height: 1.5
+        }
+
+        .cert-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: .4rem;
+            font-size: .75rem
+        }
+
+        .cert-meta span {
+            color: var(--accent-light);
+            font-weight: 500
+        }
 
         /* SERVICES */
-        .services-sub{text-align:center;max-width:600px;margin:0 auto 2.5rem;font-size:1rem;font-weight:300;color:var(--text-muted)}
-        .services-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:1.25rem}
-        .svc-tile{width:145px;height:145px;background:var(--accent);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;color:#fff;transition:all .3s;cursor:default}
-        .svc-tile:hover{transform:translateY(-4px);background:var(--accent-dark)}
-        .svc-tile svg{width:30px;height:30px;fill:#fff}
-        .svc-tile span{font-size:.8rem;font-weight:500;text-align:center;line-height:1.3}
+        .services-sub {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--text-muted)
+        }
+
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.25rem
+        }
+
+        .svc-tile {
+            width: 145px;
+            height: 145px;
+            background: var(--accent);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: .6rem;
+            color: #fff;
+            transition: all .3s;
+            cursor: default
+        }
+
+        .svc-tile:hover {
+            transform: translateY(-4px);
+            background: var(--accent-dark)
+        }
+
+        .svc-tile svg {
+            width: 30px;
+            height: 30px;
+            fill: #fff
+        }
+
+        .svc-tile span {
+            font-size: .8rem;
+            font-weight: 500;
+            text-align: center;
+            line-height: 1.3
+        }
 
         /* CONTACT */
-        .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
-        .contact-form{display:flex;flex-direction:column;gap:1.5rem}
-        .fg{position:relative}
-        .fg label{position:absolute;top:-.5rem;left:1rem;background:var(--dark-card);padding:0 .5rem;font-size:.75rem;color:var(--accent-light);font-weight:500}
-        .fg input,.fg textarea{width:100%;padding:1rem 1.25rem;background:transparent;border:1.5px solid var(--accent);border-radius:8px;color:var(--text-white);font-family:'Outfit',sans-serif;font-size:.95rem;transition:border-color .3s}
-        .fg input:focus,.fg textarea:focus{outline:none;border-color:var(--accent-light)}
-        .fg textarea{min-height:140px;resize:vertical}
-        .fg input::placeholder,.fg textarea::placeholder{color:var(--text-muted)}
-        .btn-send{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;background:var(--accent);color:#fff;border:none;border-radius:8px;font-family:'Outfit',sans-serif;font-size:1rem;font-weight:500;cursor:pointer;transition:all .3s;align-self:flex-start}
-        .btn-send:hover{background:var(--accent-dark)}
-        .btn-send svg{width:18px;height:18px;fill:#fff}
-        .contact-info{display:flex;flex-direction:column;gap:1.5rem}
-        .ci{display:flex;align-items:center;justify-content:center;gap:1rem;font-size:.95rem}
-        .ci-icon{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-        .ci-icon svg{width:20px;height:20px;fill:var(--accent-light)}
-        .c-socials{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1rem}
-        .c-social{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--accent);display:flex;align-items:center;justify-content:center;color:var(--accent-light);text-decoration:none;transition:all .3s}
-        .c-social:hover{background:var(--accent);color:#fff}
-        .c-social svg{width:18px;height:18px;fill:currentColor}
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start
+        }
 
-        footer{padding:2rem 8%;border-top:1px solid rgba(255,255,255,.05);text-align:center;font-size:.85rem;color:var(--text-muted)}
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem
+        }
+
+        .fg {
+            position: relative
+        }
+
+        .fg label {
+            position: absolute;
+            top: -.5rem;
+            left: 1rem;
+            background: var(--dark-card);
+            padding: 0 .5rem;
+            font-size: .75rem;
+            color: var(--accent-light);
+            font-weight: 500
+        }
+
+        .fg input,
+        .fg textarea {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            background: transparent;
+            border: 1.5px solid var(--accent);
+            border-radius: 8px;
+            color: var(--text-white);
+            font-family: 'Outfit', sans-serif;
+            font-size: .95rem;
+            transition: border-color .3s
+        }
+
+        .fg input:focus,
+        .fg textarea:focus {
+            outline: none;
+            border-color: var(--accent-light)
+        }
+
+        .fg textarea {
+            min-height: 140px;
+            resize: vertical
+        }
+
+        .fg input::placeholder,
+        .fg textarea::placeholder {
+            color: var(--text-muted)
+        }
+
+        .btn-send {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .85rem 2rem;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all .3s;
+            align-self: flex-start
+        }
+
+        .btn-send:hover {
+            background: var(--accent-dark)
+        }
+
+        .btn-send svg {
+            width: 18px;
+            height: 18px;
+            fill: #fff
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem
+        }
+
+        .ci {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            font-size: .95rem
+        }
+
+        .ci-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1.5px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0
+        }
+
+        .ci-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--accent-light)
+        }
+
+        .c-socials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .75rem;
+            margin-top: 1rem
+        }
+
+        .c-social {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1.5px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-light);
+            text-decoration: none;
+            transition: all .3s
+        }
+
+        .c-social:hover {
+            background: var(--accent);
+            color: #fff
+        }
+
+        .c-social svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor
+        }
+
+        footer {
+            padding: 2rem 8%;
+            border-top: 1px solid rgba(255, 255, 255, .05);
+            text-align: center;
+            font-size: .85rem;
+            color: var(--text-muted)
+        }
 
         /* SVG ILLUSTRATIONS */
-        .illust{display:flex;align-items:center;justify-content:center}
-
-        @keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
-        @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-        @keyframes fadeScale{from{opacity:0;transform:translate(-50%,-50%) scale(.8)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
-        .reveal{opacity:0;transform:translateY(30px);transition:all .8s ease}
-        .reveal.visible{opacity:1;transform:translateY(0)}
-
-        @media(max-width:1024px){
-            .hero{flex-direction:column}
-            .hero-left{width:100%;min-height:40vh;align-items:center;padding-bottom:10rem}
-            .hero-right{width:100%;padding:10rem 2rem 4rem;justify-content:center}
-            .photo-wrap{left:50%;top:40vh;animation-name:fadeScaleM}
-            @keyframes fadeScaleM{from{opacity:0;transform:translate(-50%,-50%) scale(.8)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
-            .photo-circle{width:220px;height:220px}
-            .hero-name{font-size:2.2rem}
-            .hero-content{text-align:center}
-            .hero-btns{justify-content:center}
-            .socials{justify-content:center}
-            .about-grid,.tl-grid,.certs-grid,.contact-grid{grid-template-columns:1fr;gap:2rem}
-            .proj-grid{grid-template-columns:1fr}
-            .impact-grid{grid-template-columns:repeat(2,1fr)}
-            .illust{display:none}
+        .illust {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, rgba(17, 22, 30, .9), rgba(26, 31, 40, .92));
+            border: 1px solid rgba(255, 255, 255, .06);
+            border-radius: 28px;
+            padding: 1.75rem;
+            box-shadow: var(--shadow-soft);
+            min-height: 100%
         }
-        @media(max-width:600px){
-            .hero-name{font-size:1.8rem}
-            .section{padding:3.5rem 5%}
-            .s-title{font-size:1.8rem}
-            .photo-circle{width:180px;height:180px}
-            .skill-tile{width:110px;height:65px;font-size:.8rem}
-            .svc-tile{width:110px;height:110px}
-            .impact-grid{grid-template-columns:1fr 1fr}
-            .info-tile{width:140px;min-height:130px;padding:1rem .75rem}
-            .info-tile--tall{width:100%;min-height:auto}
-            .tile-label{font-size:.85rem}
+
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @keyframes fadeScale {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(.8)
+            }
+
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1)
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all .8s ease
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        @media(max-width:1024px) {
+            .hero {
+                flex-direction: column
+            }
+
+            .hero-left {
+                width: 100%;
+                min-height: 40vh;
+                align-items: center;
+                padding-bottom: 10rem
+            }
+
+            .hero-right {
+                width: 100%;
+                padding: 10rem 2rem 4rem;
+                justify-content: center
+            }
+
+            .photo-wrap {
+                left: 50%;
+                top: 40vh;
+                animation-name: fadeScaleM
+            }
+
+            @keyframes fadeScaleM {
+                from {
+                    opacity: 0;
+                    transform: translate(-50%, -50%) scale(.8)
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) scale(1)
+                }
+            }
+
+            .photo-circle {
+                width: 220px;
+                height: 220px
+            }
+
+            .hero-name {
+                font-size: 2.2rem
+            }
+
+            .hero-content {
+                text-align: center
+            }
+
+            .hero-btns {
+                justify-content: center
+            }
+
+            .socials {
+                justify-content: center
+            }
+
+            .about-grid,
+            .tl-grid,
+            .certs-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem
+            }
+
+            .proj-grid {
+                grid-template-columns: 1fr
+            }
+
+            .impact-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .illust {
+                display: none
+            }
+        }
+
+        @media(max-width:600px) {
+            .hero-name {
+                font-size: 1.8rem
+            }
+
+            .section {
+                padding: 3.5rem 5%
+            }
+
+            .s-title {
+                font-size: 1.8rem
+            }
+
+            .photo-circle {
+                width: 180px;
+                height: 180px
+            }
+
+            .about-text {
+                padding: 1.5rem 1.25rem;
+                border-radius: 22px
+            }
+
+            .about-text p {
+                font-size: 1rem;
+                line-height: 1.85
+            }
+
+            .about-text p:first-child {
+                font-size: 1.08rem
+            }
+
+            .skill-tile {
+                width: 110px;
+                height: 65px;
+                font-size: .8rem
+            }
+
+            .svc-tile {
+                width: 110px;
+                height: 110px
+            }
+
+            .impact-grid {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .info-tile {
+                width: 140px;
+                min-height: 130px;
+                padding: 1rem .75rem
+            }
+
+            .info-tile--tall {
+                width: 100%;
+                min-height: auto
+            }
+
+            .tile-label {
+                font-size: .85rem
+            }
         }
     </style>
 </head>
-<body>
-<div class="nav-bg" id="navBg"></div>
-<nav class="nav-sidebar" id="navSidebar">
-    <button class="nav-close" id="navClose">&times;</button>
-    <a href="#hero" onclick="closeNav()"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>Home</a>
-    <a href="#about" onclick="closeNav()"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>About</a>
-    <a href="#resume" onclick="closeNav()"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>Resume</a>
-    <a href="#services" onclick="closeNav()"><svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.15-.12.19-.4.08-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94L14.4 2.81c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41L9.25 5.35c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.73 8.87c-.12.22-.07.47.08.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58c-.15.12-.19.4-.08.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.57 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.08-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>Services</a>
-    <a href="#projects" onclick="closeNav()"><svg viewBox="0 0 24 24"><path d="M20 6h-8l-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z"/></svg>Projects</a>
-    <a href="#contact" onclick="closeNav()"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>Contact</a>
-</nav>
 
-<!-- HERO -->
-<section class="hero" id="hero">
-    <div class="hero-left">
-        <a href="#" class="logo">
-            <svg width="100" height="100" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M97.8357 54.6682C177.199 59.5311 213.038 52.9891 238.043 52.9891C261.298 52.9891 272.24 129.465 262.683 152.048C253.672 173.341 100.331 174.196 93.1919 165.763C84.9363 156.008 89.7095 115.275 89.7095 101.301" stroke="#fff" stroke-opacity=".9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M98.3318 190.694C-10.6597 291.485 121.25 273.498 148.233 295.083" stroke="#fff" stroke-opacity=".9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M98.3301 190.694C99.7917 213.702 101.164 265.697 100.263 272.898" stroke="#fff" stroke-opacity=".9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M208.308 136.239C208.308 131.959 208.308 127.678 208.308 123.396" stroke="#fff" stroke-opacity=".9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M177.299 137.271C177.035 133.883 177.3 126.121 177.3 123.396" stroke="#fff" stroke-opacity=".9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M203.398 241.72C352.097 239.921 374.881 226.73 312.524 341.851" stroke="#fff" stroke-opacity=".9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M285.55 345.448C196.81 341.85 136.851 374.229 178.223 264.504" stroke="#fff" stroke-opacity=".9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M180.018 345.448C160.77 331.385 139.302 320.213 120.658 304.675" stroke="#fff" stroke-opacity=".9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M218.395 190.156C219.024 205.562 219.594 220.898 219.594 236.324" stroke="#fff" stroke-opacity=".9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M218.395 190.156C225.896 202.037 232.97 209.77 241.777 230.327" stroke="#fff" stroke-opacity=".9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M80.1174 119.041C75.5996 120.222 71.0489 119.99 66.4414 120.41" stroke="#fff" stroke-opacity=".9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M59.5935 109.469C59.6539 117.756 59.5918 125.915 58.9102 134.086" stroke="#fff" stroke-opacity=".9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M277.741 115.622C281.155 115.268 284.589 114.823 287.997 114.255" stroke="#fff" stroke-opacity=".9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M291.412 104.682C292.382 110.109 292.095 115.612 292.095 121.093" stroke="#fff" stroke-opacity=".9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M225.768 116.466C203.362 113.993 181.657 115.175 160.124 118.568" stroke="#fff" stroke-opacity=".9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </a>
-        <div class="socials">
-            <a href="https://www.linkedin.com/in/gowrishacv" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-            <a href="https://github.com/gowrishacv" target="_blank" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
-            <a href="mailto:gowrishcvk@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
-            <a href="https://www.infrawisdom.com" target="_blank" aria-label="Website"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></a>
-        </div>
-    </div>
-    <div class="photo-wrap"><div class="photo-circle"><img src="profile.png" alt="Gowrisha" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=&quot;width:100%;height:100%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));display:flex;align-items:center;justify-content:center;font-size:4.5rem;font-weight:700;color:#fff;font-family:Outfit&quot;>GV</div>'"></div></div>
-    <div class="hero-right">
-        <div class="hero-content">
-            <p class="hero-sub">Azure Cloud Architect · Infrastructure</p>
-            <h1 class="hero-name">Gowrisha C.<br>Vishwa Kumar</h1>
-            <p class="hero-bio">Azure cloud architect at Santander Bank, Germany. I design landing zones, write Terraform, and build infrastructure that passes banking audits. 10+ years. 190TB migrated. 25% cost reduction. Zero data loss.</p>
-            <div class="hero-btns">
-                <a href="Gowrisha Resume.pdf" download class="btn btn-outline">Download CV</a>
-                <a href="#contact" class="btn btn-filled">Contact</a>
+<body>
+    <div class="nav-bg" id="navBg"></div>
+    <nav class="nav-sidebar" id="navSidebar">
+        <button class="nav-close" id="navClose">&times;</button>
+        <a href="#hero" onclick="closeNav()"><svg viewBox="0 0 24 24">
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+            </svg>Home</a>
+        <a href="#about" onclick="closeNav()"><svg viewBox="0 0 24 24">
+                <path
+                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+            </svg>About</a>
+        <a href="#resume" onclick="closeNav()"><svg viewBox="0 0 24 24">
+                <path
+                    d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+            </svg>Resume</a>
+        <a href="#services" onclick="closeNav()"><svg viewBox="0 0 24 24">
+                <path
+                    d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.15-.12.19-.4.08-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94L14.4 2.81c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41L9.25 5.35c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.73 8.87c-.12.22-.07.47.08.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58c-.15.12-.19.4-.08.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.57 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.08-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z" />
+            </svg>Services</a>
+        <a href="#projects" onclick="closeNav()"><svg viewBox="0 0 24 24">
+                <path
+                    d="M20 6h-8l-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z" />
+            </svg>Projects</a>
+        <a href="#contact" onclick="closeNav()"><svg viewBox="0 0 24 24">
+                <path
+                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+            </svg>Contact</a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-left">
+            <a href="#" class="logo">
+                <svg width="100" height="100" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M97.8357 54.6682C177.199 59.5311 213.038 52.9891 238.043 52.9891C261.298 52.9891 272.24 129.465 262.683 152.048C253.672 173.341 100.331 174.196 93.1919 165.763C84.9363 156.008 89.7095 115.275 89.7095 101.301"
+                        stroke="#fff" stroke-opacity=".9" stroke-width="16" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M98.3318 190.694C-10.6597 291.485 121.25 273.498 148.233 295.083" stroke="#fff"
+                        stroke-opacity=".9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M98.3301 190.694C99.7917 213.702 101.164 265.697 100.263 272.898" stroke="#fff"
+                        stroke-opacity=".9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M208.308 136.239C208.308 131.959 208.308 127.678 208.308 123.396" stroke="#fff"
+                        stroke-opacity=".9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M177.299 137.271C177.035 133.883 177.3 126.121 177.3 123.396" stroke="#fff"
+                        stroke-opacity=".9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M203.398 241.72C352.097 239.921 374.881 226.73 312.524 341.851" stroke="#fff"
+                        stroke-opacity=".9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M285.55 345.448C196.81 341.85 136.851 374.229 178.223 264.504" stroke="#fff"
+                        stroke-opacity=".9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M180.018 345.448C160.77 331.385 139.302 320.213 120.658 304.675" stroke="#fff"
+                        stroke-opacity=".9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M218.395 190.156C219.024 205.562 219.594 220.898 219.594 236.324" stroke="#fff"
+                        stroke-opacity=".9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M218.395 190.156C225.896 202.037 232.97 209.77 241.777 230.327" stroke="#fff"
+                        stroke-opacity=".9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M80.1174 119.041C75.5996 120.222 71.0489 119.99 66.4414 120.41" stroke="#fff"
+                        stroke-opacity=".9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M59.5935 109.469C59.6539 117.756 59.5918 125.915 58.9102 134.086" stroke="#fff"
+                        stroke-opacity=".9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M277.741 115.622C281.155 115.268 284.589 114.823 287.997 114.255" stroke="#fff"
+                        stroke-opacity=".9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M291.412 104.682C292.382 110.109 292.095 115.612 292.095 121.093" stroke="#fff"
+                        stroke-opacity=".9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M225.768 116.466C203.362 113.993 181.657 115.175 160.124 118.568" stroke="#fff"
+                        stroke-opacity=".9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </a>
+            <div class="socials">
+                <a href="https://www.linkedin.com/in/gowrishacv" target="_blank" aria-label="LinkedIn"><svg
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg></a>
+                <a href="https://github.com/gowrishacv" target="_blank" aria-label="GitHub"><svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                    </svg></a>
+                <a href="mailto:gowrishcvk@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24">
+                        <path
+                            d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                    </svg></a>
+                <a href="https://www.infrawisdom.com" target="_blank" aria-label="Website"><svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                    </svg></a>
             </div>
         </div>
-    </div>
-    <button class="menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
-</section>
-
-<!-- ABOUT -->
-<section class="section" id="about">
-    <div class="reveal"><h2 class="s-title">Who I Am</h2><div class="s-divider"><div class="s-dot"></div><div class="s-dot"></div><div class="s-line"></div></div></div>
-    <div class="about-grid">
-        <div class="about-text reveal">
-            <p>I'm a cloud architect who builds Azure infrastructure for banks. That's the short version.</p>
-            <p>The longer version: I've spent the last two and a half years at Santander Bank in Germany designing the Azure platform from the ground up. Landing zones, hub-spoke networking, Terraform modules, CI/CD pipelines, identity governance, security monitoring. Before that, five years migrating workloads across Azure, AWS, and GCP, and two years before that managing VMware and network infrastructure at NetApp.</p>
-            <p>I like taking messy, manual environments and turning them into something automated, governed, and repeatable. At Santander, Azure was managed through the portal when I joined. Now everything runs through Terraform and pipelines.</p>
-            <p>When I'm not building infrastructure, I'm usually somewhere with a camera. Photography and solo travel keep me sane. I'm based in Germany and planning to stay.</p>
+        <div class="photo-wrap">
+            <div class="photo-circle"><img src="profile.png" alt="Gowrisha"
+                    onerror="this.style.display='none';this.parentElement.innerHTML='<div style=&quot;width:100%;height:100%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));display:flex;align-items:center;justify-content:center;font-size:4.5rem;font-weight:700;color:#fff;font-family:Outfit&quot;>GV</div>'">
+            </div>
         </div>
-        <div class="illust reveal">
-            <svg width="280" height="260" viewBox="0 0 280 260" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="30" y="140" width="50" height="8" rx="2" fill="#0078D4" opacity=".7"/>
-                <rect x="35" y="100" width="40" height="42" rx="4" fill="#0078D4" opacity=".5"/>
-                <path d="M55 148 L55 210" stroke="#999" stroke-width="4" stroke-linecap="round"/>
-                <path d="M35 210 L75 210" stroke="#999" stroke-width="4" stroke-linecap="round"/>
-                <rect x="70" y="130" width="180" height="8" rx="2" fill="#0078D4" opacity=".8"/>
-                <rect x="100" y="138" width="4" height="72" rx="2" fill="#999" opacity=".6"/>
-                <rect x="220" y="138" width="4" height="72" rx="2" fill="#999" opacity=".6"/>
-                <rect x="90" y="210" width="150" height="4" rx="2" fill="#999" opacity=".4"/>
-                <rect x="130" y="108" width="50" height="32" rx="3" fill="#111"/>
-                <rect x="134" y="112" width="42" height="24" rx="2" fill="#1e1e1e"/>
-                <circle cx="155" cy="124" r="3" fill="#fff" opacity=".6"/>
-                <rect x="120" y="130" width="70" height="3" rx="1" fill="#333"/>
-                <rect x="86" y="118" width="16" height="14" rx="3" fill="#0078D4" opacity=".6"/>
-                <path d="M94 118 C94 105 88 98 85 95" stroke="#333" stroke-width="2" fill="none"/>
-                <path d="M94 118 C94 108 96 100 100 95" stroke="#333" stroke-width="2" fill="none"/>
-                <ellipse cx="85" cy="93" rx="5" ry="4" fill="#333"/>
-                <ellipse cx="100" cy="93" rx="5" ry="4" fill="#333"/>
-                <rect x="195" y="170" width="42" height="50" rx="20" fill="#005A9E" opacity=".7"/>
-                <rect x="205" y="185" width="22" height="25" rx="10" fill="#0078D4" opacity=".8"/>
-                <circle cx="216" cy="195" r="4" fill="#1e1e1e"/>
-            </svg>
+        <div class="hero-right">
+            <div class="hero-content">
+                <p class="hero-sub">Azure Cloud Architect · Infrastructure</p>
+                <h1 class="hero-name">Gowrisha C.<br>Vishwa Kumar</h1>
+                <p class="hero-bio">Azure cloud architect at Santander Bank, Germany. I design landing zones, write
+                    Terraform, and build infrastructure that passes banking audits. 10+ years. 190TB migrated. 25% cost
+                    reduction. Zero data loss.</p>
+                <div class="hero-btns">
+                    <a href="Gowrisha Resume.pdf" download class="btn btn-outline">Download CV</a>
+                    <a href="#contact" class="btn btn-filled">Contact</a>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
+        <button class="menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+    </section>
 
-<!-- CAREER TIMELINE -->
-<section class="section section-alt" id="resume">
-    <div class="reveal" style="text-align:center"><h2 class="s-title">Career Timeline</h2><div class="s-divider" style="justify-content:center;max-width:300px;margin:0 auto 2.5rem"><div class="s-dot"></div><div class="s-dot"></div><div class="s-line"></div></div></div>
-    <div class="tile-row reveal">
-        <div class="info-tile" style="background:#16a34a"><svg class="tile-icon" viewBox="0 0 24 24"><path d="M20 7h-4V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zM10 5h4v2h-4V5z"/></svg><span class="tile-label">Cloud Solutions Architect</span><span class="tile-sub">Santander Bank</span><span class="tile-year">Sep 2023 – Present</span></div>
-        <div class="info-tile"><svg class="tile-icon" viewBox="0 0 24 24"><path d="M20 7h-4V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zM10 5h4v2h-4V5z"/></svg><span class="tile-label">Azure Cloud Architect</span><span class="tile-sub">Sopra Steria</span><span class="tile-year">Aug 2022 – May 2023</span></div>
-        <div class="info-tile"><svg class="tile-icon" viewBox="0 0 24 24"><path d="M20 7h-4V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zM10 5h4v2h-4V5z"/></svg><span class="tile-label">Associate Technical Lead</span><span class="tile-sub">Tech Mahindra (acq. Brainscale)</span><span class="tile-year">Oct 2021 – Jul 2022</span></div>
-        <div class="info-tile"><svg class="tile-icon" viewBox="0 0 24 24"><path d="M20 7h-4V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zM10 5h4v2h-4V5z"/></svg><span class="tile-label">Cloud Consultant</span><span class="tile-sub">Brainscale Inc</span><span class="tile-year">Oct 2017 – Oct 2021</span></div>
-        <div class="info-tile"><svg class="tile-icon" viewBox="0 0 24 24"><path d="M20 7h-4V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zM10 5h4v2h-4V5z"/></svg><span class="tile-label">Systems Engineer, VMware & VDI</span><span class="tile-sub">NetApp Inc</span><span class="tile-year">Jun 2015 – Oct 2017</span></div>
-    </div>
-</section>
-
-<!-- IMPACT -->
-<section class="section" id="impact">
-    <div class="reveal" style="text-align:center"><h2 class="s-title">Impact by the Numbers</h2><div class="s-divider" style="justify-content:center;max-width:300px;margin:0 auto 2.5rem"><div class="s-dot"></div><div class="s-dot"></div><div class="s-line"></div></div></div>
-    <div class="tile-row tile-row--compact reveal">
-        <div class="info-tile"><span class="tile-val">190TB</span><span class="tile-label">Data Migrated</span><span class="tile-sub">AWS to Azure, zero loss</span></div>
-        <div class="info-tile"><span class="tile-val">25%</span><span class="tile-label">Cost Reduction</span><span class="tile-sub">Cloud spend at Santander</span></div>
-        <div class="info-tile"><span class="tile-val">40%</span><span class="tile-label">Less Manual Work</span><span class="tile-sub">Terraform automation</span></div>
-        <div class="info-tile"><span class="tile-val">50+</span><span class="tile-label">Workloads Migrated</span><span class="tile-sub">To Azure production</span></div>
-        <div class="info-tile"><span class="tile-val">99.9%</span><span class="tile-label">Uptime</span><span class="tile-sub">Hybrid Azure+AWS</span></div>
-        <div class="info-tile"><span class="tile-val">12→4h</span><span class="tile-label">DR Recovery</span><span class="tile-sub">Time improvement</span></div>
-        <div class="info-tile"><span class="tile-val">20%</span><span class="tile-label">Fewer Incidents</span><span class="tile-sub">Security posture gain</span></div>
-        <div class="info-tile"><span class="tile-val">10+</span><span class="tile-label">Years</span><span class="tile-sub">Cloud & infrastructure</span></div>
-    </div>
-</section>
-
-<!-- TECH STACK -->
-<section class="section section-alt" id="skills">
-    <div class="reveal" style="text-align:center"><h2 class="s-title">Tech Stack</h2><div class="s-divider" style="justify-content:center;max-width:300px;margin:0 auto 2.5rem"><div class="s-dot"></div><div class="s-dot"></div><div class="s-line"></div></div></div>
-    <div class="skills-row reveal">
-        <div class="skill-tile">Azure</div>
-        <div class="skill-tile">Terraform</div>
-        <div class="skill-tile">Bicep</div>
-        <div class="skill-tile">ARM Templates</div>
-        <div class="skill-tile">Entra ID</div>
-        <div class="skill-tile">Azure Policy</div>
-        <div class="skill-tile">Sentinel</div>
-        <div class="skill-tile">Defender for Cloud</div>
-        <div class="skill-tile">Key Vault</div>
-        <div class="skill-tile">Hub-Spoke</div>
-        <div class="skill-tile">Azure DevOps</div>
-        <div class="skill-tile">GitHub Actions</div>
-        <div class="skill-tile">PowerShell</div>
-        <div class="skill-tile">Python</div>
-        <div class="skill-tile">Docker</div>
-        <div class="skill-tile">Kubernetes</div>
-        <div class="skill-tile">VMware</div>
-        <div class="skill-tile">AVD</div>
-        <div class="skill-tile">Linux</div>
-        <div class="skill-tile">FinOps</div>
-    </div>
-</section>
-
-<!-- EDUCATION -->
-<section class="section">
-    <div class="reveal" style="text-align:center"><h2 class="s-title">Education</h2><div class="s-divider" style="justify-content:center;max-width:300px;margin:0 auto 2.5rem"><div class="s-dot"></div><div class="s-dot"></div><div class="s-line"></div></div></div>
-    <div class="tile-row reveal">
-        <div class="info-tile"><svg class="tile-icon" viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg><span class="tile-label">MCA</span><span class="tile-sub">GITAM University</span><span class="tile-year">2020</span></div>
-        <div class="info-tile"><svg class="tile-icon" viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg><span class="tile-label">BCA</span><span class="tile-sub">Tamil Nadu Open University</span><span class="tile-year">2014</span></div>
-        <div class="info-tile"><svg class="tile-icon" viewBox="0 0 24 24"><path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0014.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg><span class="tile-label">German A1</span><span class="tile-sub">Goethe / TELC</span><span class="tile-year">2025</span></div>
-    </div>
-</section>
-
-<!-- PROJECTS -->
-<section class="section section-alt" id="projects">
-    <div class="reveal" style="text-align:center"><h2 class="s-title">Projects</h2><div class="s-divider" style="justify-content:center;max-width:300px;margin:0 auto 2.5rem"><div class="s-dot"></div><div class="s-dot"></div><div class="s-line"></div></div></div>
-    <div class="tile-row reveal">
-        <div class="info-tile info-tile--tall"><img src="microsoft.png" alt="Microsoft" class="tile-logo"><span class="tile-label">Azure Landing Zone</span><span class="tile-desc">Built the Azure landing zone at Santander from scratch. Management group hierarchy, subscription model, hub-spoke with centralized firewall, Policy guardrails, identity governance through Entra ID. All Terraform. This became the foundation for every cloud workload in the bank.</span><div class="tile-tags"><span>Terraform</span><span>Azure Policy</span><span>Entra ID</span><span>Hub-Spoke</span><span>Firewall</span></div></div>
-        <div class="info-tile info-tile--tall"><img src="microsoft.png" alt="Microsoft" class="tile-logo"><span class="tile-label">Cloud-to-Cloud Migration</span><span class="tile-desc">Migrated 190TB from AWS S3 to Azure Blob at Brainscale. AzCopy for incremental, Data Box for bulk, Data Factory for orchestration. Waves: non-critical first, production in maintenance windows. Checksum validation at every stage. Zero data loss. 25% cost reduction via lifecycle policies.</span><div class="tile-tags"><span>AzCopy</span><span>Data Factory</span><span>Data Box</span><span>Blob Storage</span></div></div>
-        <div class="info-tile info-tile--tall"><img src="microsoft.png" alt="Microsoft" class="tile-logo"><span class="tile-label">BCDR Strategy</span><span class="tile-desc">Cut DR recovery time from 12 hours to 4 at Brainscale. Classified workloads by criticality, set up Azure Site Recovery for continuous VM replication, built automated failover runbooks. Tested quarterly. The client passed their business continuity compliance audit for the first time.</span><div class="tile-tags"><span>ASR</span><span>Recovery Plans</span><span>Automation</span><span>Backup</span></div></div>
-        <div class="info-tile info-tile--tall"><img src="microsoft.png" alt="Microsoft" class="tile-logo"><span class="tile-label">Cost Optimization</span><span class="tile-desc">Banking regs require 10 years of data retention. Old backups on expensive NetApp storage were costing a fortune. Designed tiered archival: recent on NetApp, older to Blob Cool, compliance-only to Archive. Lifecycle policies automate tiering. Immutable storage with legal hold for compliance.</span><div class="tile-tags"><span>Blob Storage</span><span>Lifecycle Mgmt</span><span>FinOps</span><span>Azure Policy</span></div></div>
-    </div>
-</section>
-
-<!-- CERTIFICATIONS -->
-<section class="section" id="certs">
-    <div class="reveal" style="text-align:center"><h2 class="s-title">Certifications</h2><div class="s-divider" style="justify-content:center;max-width:300px;margin:0 auto 2.5rem"><div class="s-dot"></div><div class="s-dot"></div><div class="s-line"></div></div></div>
-    <div class="tile-row reveal">
-        <div class="info-tile info-tile--white"><img src="microsoft.png" alt="Microsoft" class="tile-logo"><span class="tile-label">Solutions Architect Expert</span><span class="tile-sub">AZ-305</span></div>
-        <div class="info-tile info-tile--white"><img src="microsoft.png" alt="Microsoft" class="tile-logo"><span class="tile-label">DevOps Engineer Expert</span><span class="tile-sub">AZ-400</span></div>
-        <div class="info-tile info-tile--white"><img src="microsoft.png" alt="Microsoft" class="tile-logo"><span class="tile-label">AVD Specialty</span><span class="tile-sub">AZ-140</span></div>
-        <div class="info-tile info-tile--white"><img src="microsoft.png" alt="Microsoft" class="tile-logo"><span class="tile-label">Azure Administrator</span><span class="tile-sub">AZ-104</span></div>
-        <div class="info-tile info-tile--white"><img src="terraform.png" alt="Terraform" class="tile-logo"><span class="tile-label">Terraform Associate</span><span class="tile-sub">TA-003 · HashiCorp</span></div>
-        <div class="info-tile info-tile--white"><img src="google.png" alt="Google" class="tile-logo"><span class="tile-label">Google Cloud</span><span class="tile-sub">Update cert name</span></div>
-        <div class="info-tile info-tile--white"><img src="redhat.png" alt="Red Hat" class="tile-logo"><span class="tile-label">Red Hat</span><span class="tile-sub">Update cert name</span></div>
-    </div>
-</section>
-
-<!-- EXPERTISE AREAS -->
-<section class="section section-alt" id="services">
-    <div class="reveal" style="text-align:center"><h2 class="s-title">Expertise Areas</h2><div class="s-divider" style="justify-content:center;max-width:300px;margin:0 auto 1rem"><div class="s-dot"></div><div class="s-dot"></div><div class="s-line"></div></div></div>
-    <div class="services-grid reveal">
-        <div class="svc-tile"><svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg><span>Cloud Architecture</span></div>
-        <div class="svc-tile"><svg viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg><span>Infrastructure as Code</span></div>
-        <div class="svc-tile"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg><span>Security & Governance</span></div>
-        <div class="svc-tile"><svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.15-.12.19-.4.08-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94L14.4 2.81c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41L9.25 5.35c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.73 8.87c-.12.22-.07.47.08.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58c-.15.12-.19.4-.08.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.57 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.08-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg><span>CI/CD & DevOps</span></div>
-        <div class="svc-tile"><svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg><span>Cost Optimization</span></div>
-        <div class="svc-tile"><svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM5 15h14v3H5z"/></svg><span>Virtualization</span></div>
-    </div>
-</section>
-
-<!-- CONTACT -->
-<section class="section section-alt" id="contact">
-    <div class="reveal" style="text-align:center"><h2 class="s-title">Get in Touch</h2><div class="s-divider" style="justify-content:center;max-width:300px;margin:0 auto 2.5rem"><div class="s-dot"></div><div class="s-dot"></div><div class="s-line"></div></div></div>
-    <div class="reveal" style="max-width:600px;margin:0 auto;text-align:center">
-        <p style="font-size:1.1rem;font-weight:300;line-height:1.8;margin-bottom:2.5rem">Looking for Cloud Architect and Infrastructure roles in Germany. Open to relocation. Let's talk.</p>
-        <div style="display:inline-flex;flex-direction:column;gap:1.25rem;align-items:flex-start;margin-bottom:2rem">
-            <div class="ci"><div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>gowrishcvk@gmail.com</div>
-            <a href="https://www.linkedin.com/in/gowrishacv" target="_blank" style="text-decoration:none"><div class="ci"><div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div><span style="color:var(--text-light)">LinkedIn</span></div></a>
-            <div class="ci"><div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>Germany (open to relocation)</div>
+    <!-- ABOUT -->
+    <section class="section" id="about">
+        <div class="reveal">
+            <h2 class="s-title">Who I Am</h2>
+            <div class="s-divider">
+                <div class="s-dot"></div>
+                <div class="s-dot"></div>
+                <div class="s-line"></div>
+            </div>
         </div>
-        <a href="mailto:gowrishcvk@gmail.com" class="btn btn-filled" style="display:inline-flex;align-items:center;gap:.5rem;font-size:1.05rem;padding:1rem 2.5rem">Email Me <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></a>
-    </div>
-</section>
+        <div class="about-grid">
+            <div class="about-text reveal">
+                <p>I'm a cloud architect who builds Azure infrastructure for banks. That's the short version.</p>
+                <p>The longer version: I've spent the last two and a half years at Santander Bank in Germany designing
+                    the Azure platform from the ground up. Landing zones, hub-spoke networking, Terraform modules, CI/CD
+                    pipelines, identity governance, security monitoring. Before that, five years migrating workloads
+                    across Azure, AWS, and GCP, and two years before that managing VMware and network infrastructure at
+                    NetApp.</p>
+                <p>I like taking messy, manual environments and turning them into something automated, governed, and
+                    repeatable. At Santander, Azure was managed through the portal when I joined. Now everything runs
+                    through Terraform and pipelines.</p>
+                <p>When I'm not building infrastructure, I'm usually somewhere with a camera. Photography and solo
+                    travel keep me sane. I'm based in Germany and planning to stay.</p>
+            </div>
+            <div class="illust reveal">
+                <svg width="280" height="260" viewBox="0 0 280 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="30" y="140" width="50" height="8" rx="2" fill="#0078D4" opacity=".7" />
+                    <rect x="35" y="100" width="40" height="42" rx="4" fill="#0078D4" opacity=".5" />
+                    <path d="M55 148 L55 210" stroke="#999" stroke-width="4" stroke-linecap="round" />
+                    <path d="M35 210 L75 210" stroke="#999" stroke-width="4" stroke-linecap="round" />
+                    <rect x="70" y="130" width="180" height="8" rx="2" fill="#0078D4" opacity=".8" />
+                    <rect x="100" y="138" width="4" height="72" rx="2" fill="#999" opacity=".6" />
+                    <rect x="220" y="138" width="4" height="72" rx="2" fill="#999" opacity=".6" />
+                    <rect x="90" y="210" width="150" height="4" rx="2" fill="#999" opacity=".4" />
+                    <rect x="130" y="108" width="50" height="32" rx="3" fill="#111" />
+                    <rect x="134" y="112" width="42" height="24" rx="2" fill="#1e1e1e" />
+                    <circle cx="155" cy="124" r="3" fill="#fff" opacity=".6" />
+                    <rect x="120" y="130" width="70" height="3" rx="1" fill="#333" />
+                    <rect x="86" y="118" width="16" height="14" rx="3" fill="#0078D4" opacity=".6" />
+                    <path d="M94 118 C94 105 88 98 85 95" stroke="#333" stroke-width="2" fill="none" />
+                    <path d="M94 118 C94 108 96 100 100 95" stroke="#333" stroke-width="2" fill="none" />
+                    <ellipse cx="85" cy="93" rx="5" ry="4" fill="#333" />
+                    <ellipse cx="100" cy="93" rx="5" ry="4" fill="#333" />
+                    <rect x="195" y="170" width="42" height="50" rx="20" fill="#005A9E" opacity=".7" />
+                    <rect x="205" y="185" width="22" height="25" rx="10" fill="#0078D4" opacity=".8" />
+                    <circle cx="216" cy="195" r="4" fill="#1e1e1e" />
+                </svg>
+            </div>
+        </div>
+    </section>
 
-<footer>&copy; 2026 Gowrisha C. Vishwa Kumar · InfraWisdom. Built with passion for cloud architecture.</footer>
+    <!-- CAREER TIMELINE -->
+    <section class="section section-alt" id="resume">
+        <div class="reveal" style="text-align:center">
+            <h2 class="s-title">Career Timeline</h2>
+            <div class="s-divider" style="justify-content:center;max-width:300px;margin:0 auto 2.5rem">
+                <div class="s-dot"></div>
+                <div class="s-dot"></div>
+                <div class="s-line"></div>
+            </div>
+        </div>
+        <div class="tile-row reveal">
+            <div class="info-tile" style="background:#16a34a"><svg class="tile-icon" viewBox="0 0 24 24">
+                    <path
+                        d="M20 7h-4V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zM10 5h4v2h-4V5z" />
+                </svg><span class="tile-label">Cloud Solutions Architect</span><span class="tile-sub">Santander
+                    Bank</span><span class="tile-year">Sep 2023 – Present</span></div>
+            <div class="info-tile"><svg class="tile-icon" viewBox="0 0 24 24">
+                    <path
+                        d="M20 7h-4V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zM10 5h4v2h-4V5z" />
+                </svg><span class="tile-label">Azure Cloud Architect</span><span class="tile-sub">Sopra
+                    Steria</span><span class="tile-year">Aug 2022 – May 2023</span></div>
+            <div class="info-tile"><svg class="tile-icon" viewBox="0 0 24 24">
+                    <path
+                        d="M20 7h-4V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zM10 5h4v2h-4V5z" />
+                </svg><span class="tile-label">Associate Technical Lead</span><span class="tile-sub">Tech Mahindra (acq.
+                    Brainscale)</span><span class="tile-year">Oct 2021 – Jul 2022</span></div>
+            <div class="info-tile"><svg class="tile-icon" viewBox="0 0 24 24">
+                    <path
+                        d="M20 7h-4V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zM10 5h4v2h-4V5z" />
+                </svg><span class="tile-label">Cloud Consultant</span><span class="tile-sub">Brainscale Inc</span><span
+                    class="tile-year">Oct 2017 – Oct 2021</span></div>
+            <div class="info-tile"><svg class="tile-icon" viewBox="0 0 24 24">
+                    <path
+                        d="M20 7h-4V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zM10 5h4v2h-4V5z" />
+                </svg><span class="tile-label">Systems Engineer, VMware & VDI</span><span class="tile-sub">NetApp
+                    Inc</span><span class="tile-year">Jun 2015 – Oct 2017</span></div>
+        </div>
+    </section>
 
-<script>
-const menuBtn=document.getElementById('menuBtn'),navSidebar=document.getElementById('navSidebar'),navBg=document.getElementById('navBg'),navClose=document.getElementById('navClose');
-function openNav(){navSidebar.classList.add('active');navBg.classList.add('active');document.body.style.overflow='hidden'}
-function closeNav(){navSidebar.classList.remove('active');navBg.classList.remove('active');document.body.style.overflow=''}
-menuBtn.addEventListener('click',openNav);navClose.addEventListener('click',closeNav);navBg.addEventListener('click',closeNav);
-document.querySelectorAll('.reveal').forEach(el=>{new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('visible')})},{threshold:.15}).observe(el)});
-</script>
+    <!-- IMPACT -->
+    <section class="section" id="impact">
+        <div class="reveal" style="text-align:center">
+            <h2 class="s-title">Impact by the Numbers</h2>
+            <div class="s-divider" style="justify-content:center;max-width:300px;margin:0 auto 2.5rem">
+                <div class="s-dot"></div>
+                <div class="s-dot"></div>
+                <div class="s-line"></div>
+            </div>
+        </div>
+        <div class="tile-row tile-row--compact reveal">
+            <div class="info-tile"><span class="tile-val">190TB</span><span class="tile-label">Data Migrated</span><span
+                    class="tile-sub">AWS to Azure, zero loss</span></div>
+            <div class="info-tile"><span class="tile-val">25%</span><span class="tile-label">Cost Reduction</span><span
+                    class="tile-sub">Cloud spend at Santander</span></div>
+            <div class="info-tile"><span class="tile-val">40%</span><span class="tile-label">Less Manual
+                    Work</span><span class="tile-sub">Terraform automation</span></div>
+            <div class="info-tile"><span class="tile-val">50+</span><span class="tile-label">Workloads
+                    Migrated</span><span class="tile-sub">To Azure production</span></div>
+            <div class="info-tile"><span class="tile-val">99.9%</span><span class="tile-label">Uptime</span><span
+                    class="tile-sub">Hybrid Azure+AWS</span></div>
+            <div class="info-tile"><span class="tile-val">12→4h</span><span class="tile-label">DR Recovery</span><span
+                    class="tile-sub">Time improvement</span></div>
+            <div class="info-tile"><span class="tile-val">20%</span><span class="tile-label">Fewer Incidents</span><span
+                    class="tile-sub">Security posture gain</span></div>
+            <div class="info-tile"><span class="tile-val">10+</span><span class="tile-label">Years</span><span
+                    class="tile-sub">Cloud & infrastructure</span></div>
+        </div>
+    </section>
+
+    <!-- TECH STACK -->
+    <section class="section section-alt" id="skills">
+        <div class="reveal" style="text-align:center">
+            <h2 class="s-title">Tech Stack</h2>
+            <div class="s-divider" style="justify-content:center;max-width:300px;margin:0 auto 2.5rem">
+                <div class="s-dot"></div>
+                <div class="s-dot"></div>
+                <div class="s-line"></div>
+            </div>
+        </div>
+        <div class="skills-row reveal">
+            <div class="skill-tile">Azure</div>
+            <div class="skill-tile">Terraform</div>
+            <div class="skill-tile">Bicep</div>
+            <div class="skill-tile">ARM Templates</div>
+            <div class="skill-tile">Entra ID</div>
+            <div class="skill-tile">Azure Policy</div>
+            <div class="skill-tile">Sentinel</div>
+            <div class="skill-tile">Defender for Cloud</div>
+            <div class="skill-tile">Key Vault</div>
+            <div class="skill-tile">Hub-Spoke</div>
+            <div class="skill-tile">Azure DevOps</div>
+            <div class="skill-tile">GitHub Actions</div>
+            <div class="skill-tile">PowerShell</div>
+            <div class="skill-tile">Python</div>
+            <div class="skill-tile">Docker</div>
+            <div class="skill-tile">Kubernetes</div>
+            <div class="skill-tile">VMware</div>
+            <div class="skill-tile">AVD</div>
+            <div class="skill-tile">Linux</div>
+            <div class="skill-tile">FinOps</div>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section">
+        <div class="reveal" style="text-align:center">
+            <h2 class="s-title">Education</h2>
+            <div class="s-divider" style="justify-content:center;max-width:300px;margin:0 auto 2.5rem">
+                <div class="s-dot"></div>
+                <div class="s-dot"></div>
+                <div class="s-line"></div>
+            </div>
+        </div>
+        <div class="tile-row reveal">
+            <div class="info-tile"><svg class="tile-icon" viewBox="0 0 24 24">
+                    <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
+                </svg><span class="tile-label">MCA</span><span class="tile-sub">GITAM University</span><span
+                    class="tile-year">2020</span></div>
+            <div class="info-tile"><svg class="tile-icon" viewBox="0 0 24 24">
+                    <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
+                </svg><span class="tile-label">BCA</span><span class="tile-sub">Tamil Nadu Open University</span><span
+                    class="tile-year">2014</span></div>
+            <div class="info-tile"><svg class="tile-icon" viewBox="0 0 24 24">
+                    <path
+                        d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0014.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+                </svg><span class="tile-label">German A1</span><span class="tile-sub">Goethe / TELC</span><span
+                    class="tile-year">2025</span></div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section section-alt" id="projects">
+        <div class="reveal" style="text-align:center">
+            <h2 class="s-title">Projects</h2>
+            <div class="s-divider" style="justify-content:center;max-width:300px;margin:0 auto 2.5rem">
+                <div class="s-dot"></div>
+                <div class="s-dot"></div>
+                <div class="s-line"></div>
+            </div>
+        </div>
+        <div class="tile-row reveal">
+            <div class="info-tile info-tile--tall"><img src="microsoft.png" alt="Microsoft" class="tile-logo"><span
+                    class="tile-label">Azure Landing Zone</span><span class="tile-desc">Built the Azure landing zone at
+                    Santander from scratch. Management group hierarchy, subscription model, hub-spoke with centralized
+                    firewall, Policy guardrails, identity governance through Entra ID. All Terraform. This became the
+                    foundation for every cloud workload in the bank.</span>
+                <div class="tile-tags"><span>Terraform</span><span>Azure Policy</span><span>Entra
+                        ID</span><span>Hub-Spoke</span><span>Firewall</span></div>
+            </div>
+            <div class="info-tile info-tile--tall"><img src="microsoft.png" alt="Microsoft" class="tile-logo"><span
+                    class="tile-label">Cloud-to-Cloud Migration</span><span class="tile-desc">Migrated 190TB from AWS S3
+                    to Azure Blob at Brainscale. AzCopy for incremental, Data Box for bulk, Data Factory for
+                    orchestration. Waves: non-critical first, production in maintenance windows. Checksum validation at
+                    every stage. Zero data loss. 25% cost reduction via lifecycle policies.</span>
+                <div class="tile-tags"><span>AzCopy</span><span>Data Factory</span><span>Data Box</span><span>Blob
+                        Storage</span></div>
+            </div>
+            <div class="info-tile info-tile--tall"><img src="microsoft.png" alt="Microsoft" class="tile-logo"><span
+                    class="tile-label">BCDR Strategy</span><span class="tile-desc">Cut DR recovery time from 12 hours to
+                    4 at Brainscale. Classified workloads by criticality, set up Azure Site Recovery for continuous VM
+                    replication, built automated failover runbooks. Tested quarterly. The client passed their business
+                    continuity compliance audit for the first time.</span>
+                <div class="tile-tags"><span>ASR</span><span>Recovery
+                        Plans</span><span>Automation</span><span>Backup</span></div>
+            </div>
+            <div class="info-tile info-tile--tall"><img src="microsoft.png" alt="Microsoft" class="tile-logo"><span
+                    class="tile-label">Cost Optimization</span><span class="tile-desc">Banking regs require 10 years of
+                    data retention. Old backups on expensive NetApp storage were costing a fortune. Designed tiered
+                    archival: recent on NetApp, older to Blob Cool, compliance-only to Archive. Lifecycle policies
+                    automate tiering. Immutable storage with legal hold for compliance.</span>
+                <div class="tile-tags"><span>Blob Storage</span><span>Lifecycle
+                        Mgmt</span><span>FinOps</span><span>Azure Policy</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="section" id="certs">
+        <div class="reveal" style="text-align:center">
+            <h2 class="s-title">Certifications</h2>
+            <div class="s-divider" style="justify-content:center;max-width:300px;margin:0 auto 2.5rem">
+                <div class="s-dot"></div>
+                <div class="s-dot"></div>
+                <div class="s-line"></div>
+            </div>
+        </div>
+        <div class="tile-row reveal">
+            <div class="info-tile info-tile--white"><img src="microsoft.png" alt="Microsoft" class="tile-logo"><span
+                    class="tile-label">Solutions Architect Expert</span><span class="tile-sub">AZ-305</span></div>
+            <div class="info-tile info-tile--white"><img src="microsoft.png" alt="Microsoft" class="tile-logo"><span
+                    class="tile-label">DevOps Engineer Expert</span><span class="tile-sub">AZ-400</span></div>
+            <div class="info-tile info-tile--white"><img src="microsoft.png" alt="Microsoft" class="tile-logo"><span
+                    class="tile-label">AVD Specialty</span><span class="tile-sub">AZ-140</span></div>
+            <div class="info-tile info-tile--white"><img src="microsoft.png" alt="Microsoft" class="tile-logo"><span
+                    class="tile-label">Azure Administrator</span><span class="tile-sub">AZ-104</span></div>
+            <div class="info-tile info-tile--white"><img src="terraform.png" alt="Terraform" class="tile-logo"><span
+                    class="tile-label">Terraform Associate</span><span class="tile-sub">TA-003 · HashiCorp</span></div>
+            <div class="info-tile info-tile--white"><img src="google.png" alt="Google" class="tile-logo"><span
+                    class="tile-label">Google Cloud</span><span class="tile-sub">Update cert name</span></div>
+            <div class="info-tile info-tile--white"><img src="redhat.png" alt="Red Hat" class="tile-logo"><span
+                    class="tile-label">Red Hat</span><span class="tile-sub">Update cert name</span></div>
+        </div>
+    </section>
+
+    <!-- EXPERTISE AREAS -->
+    <section class="section section-alt" id="services">
+        <div class="reveal" style="text-align:center">
+            <h2 class="s-title">Expertise Areas</h2>
+            <div class="s-divider" style="justify-content:center;max-width:300px;margin:0 auto 1rem">
+                <div class="s-dot"></div>
+                <div class="s-dot"></div>
+                <div class="s-line"></div>
+            </div>
+        </div>
+        <div class="services-grid reveal">
+            <div class="svc-tile"><svg viewBox="0 0 24 24">
+                    <path
+                        d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" />
+                </svg><span>Cloud Architecture</span></div>
+            <div class="svc-tile"><svg viewBox="0 0 24 24">
+                    <path
+                        d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z" />
+                </svg><span>Infrastructure as Code</span></div>
+            <div class="svc-tile"><svg viewBox="0 0 24 24">
+                    <path
+                        d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" />
+                </svg><span>Security & Governance</span></div>
+            <div class="svc-tile"><svg viewBox="0 0 24 24">
+                    <path
+                        d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.15-.12.19-.4.08-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94L14.4 2.81c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41L9.25 5.35c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.73 8.87c-.12.22-.07.47.08.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58c-.15.12-.19.4-.08.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.57 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.08-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z" />
+                </svg><span>CI/CD & DevOps</span></div>
+            <div class="svc-tile"><svg viewBox="0 0 24 24">
+                    <path
+                        d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z" />
+                </svg><span>Cost Optimization</span></div>
+            <div class="svc-tile"><svg viewBox="0 0 24 24">
+                    <path
+                        d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM5 15h14v3H5z" />
+                </svg><span>Virtualization</span></div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section section-alt" id="contact">
+        <div class="reveal" style="text-align:center">
+            <h2 class="s-title">Get in Touch</h2>
+            <div class="s-divider" style="justify-content:center;max-width:300px;margin:0 auto 2.5rem">
+                <div class="s-dot"></div>
+                <div class="s-dot"></div>
+                <div class="s-line"></div>
+            </div>
+        </div>
+        <div class="reveal" style="max-width:600px;margin:0 auto;text-align:center">
+            <p style="font-size:1.1rem;font-weight:300;line-height:1.8;margin-bottom:2.5rem">Looking for Cloud Architect
+                and Infrastructure roles in Germany. Open to relocation. Let's talk.</p>
+            <div
+                style="display:inline-flex;flex-direction:column;gap:1.25rem;align-items:flex-start;margin-bottom:2rem">
+                <div class="ci">
+                    <div class="ci-icon"><svg viewBox="0 0 24 24">
+                            <path
+                                d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                        </svg></div>gowrishcvk@gmail.com
+                </div>
+                <a href="https://www.linkedin.com/in/gowrishacv" target="_blank" style="text-decoration:none">
+                    <div class="ci">
+                        <div class="ci-icon"><svg viewBox="0 0 24 24">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg></div><span style="color:var(--text-light)">LinkedIn</span>
+                    </div>
+                </a>
+                <div class="ci">
+                    <div class="ci-icon"><svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                        </svg></div>Germany (open to relocation)
+                </div>
+            </div>
+            <a href="mailto:gowrishcvk@gmail.com" class="btn btn-filled"
+                style="display:inline-flex;align-items:center;gap:.5rem;font-size:1.05rem;padding:1rem 2.5rem">Email Me
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                </svg></a>
+        </div>
+    </section>
+
+    <footer>&copy; 2026 Gowrisha C. Vishwa Kumar · InfraWisdom. Built with passion for cloud architecture.</footer>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn'), navSidebar = document.getElementById('navSidebar'), navBg = document.getElementById('navBg'), navClose = document.getElementById('navClose');
+        function openNav() { navSidebar.classList.add('active'); navBg.classList.add('active'); document.body.style.overflow = 'hidden' }
+        function closeNav() { navSidebar.classList.remove('active'); navBg.classList.remove('active'); document.body.style.overflow = '' }
+        menuBtn.addEventListener('click', openNav); navClose.addEventListener('click', closeNav); navBg.addEventListener('click', closeNav);
+        document.querySelectorAll('.reveal').forEach(el => { new IntersectionObserver(e => { e.forEach(en => { if (en.isIntersecting) en.target.classList.add('visible') }) }, { threshold: .15 }).observe(el) });
+    </script>
 </body>
+
 </html>
