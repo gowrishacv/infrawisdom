@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Quicksand:wght@600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <style>
         *,
@@ -374,6 +374,12 @@
         }
 
         /* ABOUT */
+        #about .s-title {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 800;
+            letter-spacing: -.02em
+        }
+
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -382,10 +388,15 @@
         }
 
         .about-text p {
+            font-family: 'Manrope', sans-serif;
             font-size: 1rem;
-            font-weight: 300;
+            font-weight: 400;
             line-height: 1.8;
             margin-bottom: 1.25rem
+        }
+
+        .about-text p:first-child {
+            font-weight: 700
         }
 
         /* TIMELINE */
@@ -565,6 +576,14 @@
             background: none;
             padding: 0;
             border-radius: 0
+        }
+
+        .project-icon {
+            width: 42px;
+            height: 42px;
+            margin-bottom: .65rem;
+            fill: #fff;
+            opacity: .95
         }
 
         .tile-label {
@@ -1459,32 +1478,44 @@
             </div>
         </div>
         <div class="tile-row reveal">
-            <div class="info-tile info-tile--tall"><img src="microsoft.png" alt="Microsoft" class="tile-logo"><span
-                    class="tile-label">Azure Landing Zone</span><span class="tile-desc">Built the Azure landing zone at
+            <div class="info-tile info-tile--tall"><svg class="project-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                        d="M3 5a2 2 0 0 1 2-2h5v6H3V5zm0 7h7v9H5a2 2 0 0 1-2-2v-7zm10-9h6a2 2 0 0 1 2 2v8h-8V3zm0 11h8v5a2 2 0 0 1-2 2h-6v-7z" />
+                </svg><span class="tile-label">Azure Landing Zone</span><span class="tile-desc">Built the Azure landing
+                    zone at
                     Santander from scratch. Management group hierarchy, subscription model, hub-spoke with centralized
                     firewall, Policy guardrails, identity governance through Entra ID. All Terraform. This became the
                     foundation for every cloud workload in the bank.</span>
                 <div class="tile-tags"><span>Terraform</span><span>Azure Policy</span><span>Entra
                         ID</span><span>Hub-Spoke</span><span>Firewall</span></div>
             </div>
-            <div class="info-tile info-tile--tall"><img src="microsoft.png" alt="Microsoft" class="tile-logo"><span
-                    class="tile-label">Cloud-to-Cloud Migration</span><span class="tile-desc">Migrated 190TB from AWS S3
+            <div class="info-tile info-tile--tall"><svg class="project-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                        d="M7 18a4 4 0 0 1-4-4c0-2.05 1.53-3.74 3.5-3.97A5.5 5.5 0 0 1 17.3 8.1 4 4 0 1 1 18 18H7zm5-9-4 4h3v4h2v-4h3l-4-4z" />
+                </svg><span class="tile-label">Cloud-to-Cloud Migration</span><span class="tile-desc">Migrated 190TB
+                    from AWS S3
                     to Azure Blob at Brainscale. AzCopy for incremental, Data Box for bulk, Data Factory for
                     orchestration. Waves: non-critical first, production in maintenance windows. Checksum validation at
                     every stage. Zero data loss. 25% cost reduction via lifecycle policies.</span>
                 <div class="tile-tags"><span>AzCopy</span><span>Data Factory</span><span>Data Box</span><span>Blob
                         Storage</span></div>
             </div>
-            <div class="info-tile info-tile--tall"><img src="microsoft.png" alt="Microsoft" class="tile-logo"><span
-                    class="tile-label">BCDR Strategy</span><span class="tile-desc">Cut DR recovery time from 12 hours to
+            <div class="info-tile info-tile--tall"><svg class="project-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                        d="M12 2 4 5v6c0 5.25 3.4 10.17 8 11 4.6-.83 8-5.75 8-11V5l-8-3zm-1 14-3-3 1.4-1.4 1.6 1.58 4.6-4.58L17 10l-6 6z" />
+                </svg><span class="tile-label">BCDR Strategy</span><span class="tile-desc">Cut DR recovery time from 12
+                    hours to
                     4 at Brainscale. Classified workloads by criticality, set up Azure Site Recovery for continuous VM
                     replication, built automated failover runbooks. Tested quarterly. The client passed their business
                     continuity compliance audit for the first time.</span>
                 <div class="tile-tags"><span>ASR</span><span>Recovery
                         Plans</span><span>Automation</span><span>Backup</span></div>
             </div>
-            <div class="info-tile info-tile--tall"><img src="microsoft.png" alt="Microsoft" class="tile-logo"><span
-                    class="tile-label">Cost Optimization</span><span class="tile-desc">Banking regs require 10 years of
+            <div class="info-tile info-tile--tall"><svg class="project-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                        d="M12 3c-2.76 0-5 1.12-5 2.5S9.24 8 12 8s5-1.12 5-2.5S14.76 3 12 3zm-5 5v3.5C7 12.88 9.24 14 12 14s5-1.12 5-2.5V8c-1.1 1.02-3.03 1.5-5 1.5S8.1 9.02 7 8zm0 5.5V17c0 1.38 2.24 2.5 5 2.5s5-1.12 5-2.5v-3.5c-1.1 1.02-3.03 1.5-5 1.5s-3.9-.48-5-1.5z" />
+                </svg><span class="tile-label">Cost Optimization</span><span class="tile-desc">Banking regs require 10
+                    years of
                     data retention. Old backups on expensive NetApp storage were costing a fortune. Designed tiered
                     archival: recent on NetApp, older to Blob Cool, compliance-only to Archive. Lifecycle policies
                     automate tiering. Immutable storage with legal hold for compliance.</span>
