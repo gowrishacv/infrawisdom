@@ -380,23 +380,49 @@
             letter-spacing: -.02em
         }
 
+        #about .s-divider {
+            margin-bottom: 3rem
+        }
+
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center
+            grid-template-columns: minmax(0, 1.18fr) minmax(260px, .82fr);
+            gap: 4.75rem;
+            align-items: start
+        }
+
+        .about-text {
+            max-width: 66ch
         }
 
         .about-text p {
             font-family: 'Manrope', sans-serif;
-            font-size: 1rem;
+            font-size: 1.06rem;
             font-weight: 400;
-            line-height: 1.8;
-            margin-bottom: 1.25rem
+            line-height: 1.92;
+            letter-spacing: -.01em;
+            margin-bottom: 1.5rem
         }
 
         .about-text p:first-child {
-            font-weight: 700
+            font-size: 1.18rem;
+            font-weight: 700;
+            line-height: 1.65;
+            margin-bottom: 1.75rem
+        }
+
+        .about-text p:last-child {
+            margin-bottom: 0
+        }
+
+        .illust {
+            align-self: center;
+            justify-content: flex-end
+        }
+
+        .illust svg {
+            width: min(100%, 320px);
+            height: auto
         }
 
         /* TIMELINE */
@@ -1005,6 +1031,13 @@
             justify-content: center
         }
 
+        .about-image {
+            width: min(100%, 520px);
+            height: auto;
+            display: block;
+            object-fit: cover
+        }
+
         @keyframes fadeDown {
             from {
                 opacity: 0;
@@ -1115,6 +1148,10 @@
             .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem
+            }
+
+            .about-text {
+                max-width: 100%
             }
 
             .proj-grid {
@@ -1311,28 +1348,7 @@
                     travel keep me sane. I'm based in Germany and planning to stay.</p>
             </div>
             <div class="illust reveal">
-                <svg width="280" height="260" viewBox="0 0 280 260" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="30" y="140" width="50" height="8" rx="2" fill="#0078D4" opacity=".7" />
-                    <rect x="35" y="100" width="40" height="42" rx="4" fill="#0078D4" opacity=".5" />
-                    <path d="M55 148 L55 210" stroke="#999" stroke-width="4" stroke-linecap="round" />
-                    <path d="M35 210 L75 210" stroke="#999" stroke-width="4" stroke-linecap="round" />
-                    <rect x="70" y="130" width="180" height="8" rx="2" fill="#0078D4" opacity=".8" />
-                    <rect x="100" y="138" width="4" height="72" rx="2" fill="#999" opacity=".6" />
-                    <rect x="220" y="138" width="4" height="72" rx="2" fill="#999" opacity=".6" />
-                    <rect x="90" y="210" width="150" height="4" rx="2" fill="#999" opacity=".4" />
-                    <rect x="130" y="108" width="50" height="32" rx="3" fill="#111" />
-                    <rect x="134" y="112" width="42" height="24" rx="2" fill="#1e1e1e" />
-                    <circle cx="155" cy="124" r="3" fill="#fff" opacity=".6" />
-                    <rect x="120" y="130" width="70" height="3" rx="1" fill="#333" />
-                    <rect x="86" y="118" width="16" height="14" rx="3" fill="#0078D4" opacity=".6" />
-                    <path d="M94 118 C94 105 88 98 85 95" stroke="#333" stroke-width="2" fill="none" />
-                    <path d="M94 118 C94 108 96 100 100 95" stroke="#333" stroke-width="2" fill="none" />
-                    <ellipse cx="85" cy="93" rx="5" ry="4" fill="#333" />
-                    <ellipse cx="100" cy="93" rx="5" ry="4" fill="#333" />
-                    <rect x="195" y="170" width="42" height="50" rx="20" fill="#005A9E" opacity=".7" />
-                    <rect x="205" y="185" width="22" height="25" rx="10" fill="#0078D4" opacity=".8" />
-                    <circle cx="216" cy="195" r="4" fill="#1e1e1e" />
-                </svg>
+                <img src="About.jpg" alt="Workspace desk setup" class="about-image">
             </div>
         </div>
     </section>
