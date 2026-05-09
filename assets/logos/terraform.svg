@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">HashiCorp Terraform</title>
+  <path fill="#7b42bc" d="M6 8v16l14 8V16L6 8z"/>
+  <path fill="#7b42bc" d="M22 17v16l14 8V25l-14-8z"/>
+  <path fill="#7b42bc" d="M38 25v16l14-8V17l-14 8z"/>
+  <path fill="#7b42bc" d="M22 35v16l14 8V43l-14-8z"/>
+</svg>
