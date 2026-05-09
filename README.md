@@ -1,21 +1,22 @@
 # InfraWisdom - Portfolio
 
-Personal portfolio site for **Gowrisha C. Vishwa Kumar**, Cloud Architect.
+Personal interactive portfolio site for **Gowrisha C. Vishwa Kumar**, Cloud Architect.
 
 ## Stack
 
-- Static HTML/CSS/JS (zero dependencies, zero build step)
+- Static HTML/CSS/JS (zero build step)
+- Tailwind CDN for layout styling
+- Chart.js CDN for interactive impact and competency charts
 - Hosted on GitHub Pages with custom domain `www.infrawisdom.com`
-- Apple-inspired full-bleed tile system with a single blue accent
-- Interactive career tabs and filterable technical ecosystem, implemented without external libraries
+- Interactive career tabs and filterable technical ecosystem
 
 ## Files
 
 | File | Purpose |
 |------|---------|
-| `index.html` | Full site: hero, impact, work, career tabs, tech filters, credentials, contact |
+| `index.html` | Interactive site: summary, impact charts, career tabs, tech filters, credentials, contact |
 | `profile.png` | Profile photo |
-| `About.jpg` | Unused legacy image asset |
+| `About.jpg` | Legacy image asset, not used on the current page |
 | `Gowrisha Resume.pdf` | Downloadable updated CV |
 | `CNAME` | Custom domain config for GitHub Pages |
 
